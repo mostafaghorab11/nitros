@@ -22,6 +22,7 @@ export default {
       fontFamily: {
         sans: ['var(--font-redhat)'],
         heading: ['var(--font-redhat)'],
+        'ibm-arabic': ['var(--font-ibm-arabic)'],
       },
     },
   },
