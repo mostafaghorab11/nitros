@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import AuthLinks from './AuthLinks';
 import NavLinks from './NavLinks';
 import Drawer from './Drawer';
 
@@ -22,20 +23,8 @@ export default function Navbar() {
         <NavLinks />
 
         {/* Right Section */}
-        <div className="hidden md:flex items-center gap-4 px-[10px]">
-          <Link
-            href="/sign-in"
-            className="px-4 py-2.5 text-gray-dark hover:text-primary transition-colors text-[16px] font-normal leading-[23.36px]"
-          >
-            Sign Up / In
-          </Link>
-          <Link
-            href="/ar"
-            className="px-4 py-2 text-gray-dark hover:text-primary transition-colors text-[16px] font-medium leading-[19.2px] font-ibm-arabic"
-          >
-            عربي
-          </Link>
-        </div>
+        <AuthLinks />
+
         {/* Mobile Drawer */}
         <Drawer />
       </div>

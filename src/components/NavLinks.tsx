@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
 
 const navLinks = [
   { name: 'Home', href: '/' },
@@ -19,16 +18,6 @@ interface NavLinksProps {
 
 export default function NavLinks({ isMobile, onLinkClick }: NavLinksProps) {
   const pathname = usePathname();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // Return null on first render to avoid hydration mismatch
-  if (!mounted) {
-    return null;
-  }
 
   return (
     <div className={isMobile ? "space-y-1" : "hidden md:flex items-center p-[6px]"}>

@@ -2,28 +2,19 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { IoIosMenu } from 'react-icons/io';
 import { IoClose } from 'react-icons/io5';
+import AuthLinks from './AuthLinks';
 import NavLinks from './NavLinks';
 
 export default function Drawer() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const drawerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
-  };
-
-  // Return null on first render to avoid hydration mismatch
-  if (!mounted) {
-    return null;
-  }
+  }; 
 
   return (
     <>
@@ -72,22 +63,7 @@ export default function Drawer() {
 
             <nav className="p-6">
               <NavLinks isMobile onLinkClick={toggleDrawer} />
-              <div className="mt-6 pt-6 border-t border-gray-100 space-y-1">
-                <Link
-                  href="/sign-in"
-                  className="block w-full py-3 px-4 rounded-lg text-[15px] font-medium text-gray-dark hover:text-primary hover:bg-gray-50 transition-colors"
-                  onClick={toggleDrawer}
-                >
-                  Sign Up / In
-                </Link>
-                <Link
-                  href="/ar"
-                  className="block w-full py-3 px-4 rounded-lg text-[15px] font-medium text-gray-dark hover:text-primary hover:bg-gray-50 transition-colors font-ibm-arabic"
-                  onClick={toggleDrawer}
-                >
-                  عربي
-                </Link>
-              </div>
+              <AuthLinks isMobile onLinkClick={toggleDrawer} />
             </nav>
           </div>
         </div>
