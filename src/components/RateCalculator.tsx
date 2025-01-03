@@ -21,7 +21,7 @@ const RateCalculator = () => {
   const [toCity, setToCity] = useState('cities.Jeddah');
 
   return (
-    <section className="w-full bg-gradient-to-r from-gray-light to-white rounded-[20px]">
+    <section id="rates" className="w-full bg-gradient-to-r from-gray-light to-white rounded-[20px]">
       <div className="max-w-4xl mx-auto px-4 py-8 sm:py-16 sm:px-8 flex flex-col items-center gap-8">
         <div className="flex flex-col gap-4 text-center">
           <h2 className="text-[25px] sm:text-[39px] leading-[30px] sm:leading-[64.74px] font-normal mb-4 text-gray-900">

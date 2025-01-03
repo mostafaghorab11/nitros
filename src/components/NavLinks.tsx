@@ -7,7 +7,7 @@ import { translate } from '@/utils/translate';
 
 const navLinks = [
   { name: 'nav.home', href: '/' },
-  { name: 'common.rates', href: '/rates' },
+  { name: 'common.rates', href: '#rates' },
   { name: 'nav.shipping', href: '/shipping' },
   { name: 'nav.pricing', href: '/pricing' },
   { name: 'nav.whyNitros', href: '/why-nitros' },
