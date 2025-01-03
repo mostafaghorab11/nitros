@@ -106,7 +106,7 @@ const CourierCard: FC<CourierCardProps> = ({
 
             <div className="flex flex-col gap-1.5 text-right">
               <div className="text-[10px] leading-3 text-gray-400 uppercase rtl:text-left font-semibold">
-                {translate('rates.delivery options', locale)}
+                {translate('rates.deliveryOptions', locale)}
               </div>
               <div className="font-normal text-[13px] leading-[18.98px]">
                 {translate('rates.pick&branch', locale)}
