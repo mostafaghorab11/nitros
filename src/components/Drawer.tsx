@@ -7,10 +7,12 @@ import { IoIosMenu } from 'react-icons/io';
 import { IoClose } from 'react-icons/io5';
 import AuthLinks from './AuthLinks';
 import NavLinks from './NavLinks';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Drawer() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const drawerRef = useRef<HTMLDivElement>(null);
+  const { dir } = useLanguage();
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
@@ -33,7 +35,7 @@ export default function Drawer() {
           <div
             ref={drawerRef}
             id="mobile-menu"
-            className="fixed top-0 right-0 w-[280px] h-full bg-white shadow-lg z-50"
+            className={`fixed top-0 ${dir === 'rtl' ? 'left-0' : 'right-0'} w-[280px] h-full bg-white shadow-lg z-50`}
             role="dialog"
             aria-modal="true"
             aria-label="Navigation menu"
