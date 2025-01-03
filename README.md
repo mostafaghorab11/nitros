@@ -1,36 +1,183 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nitros - Shipping Rate Calculator
+
+A modern, responsive shipping rate calculator built with Next.js, featuring bilingual support (English/Arabic) and smooth animations.
+
+## Features
+
+### 🌐 Bilingual Support
+
+- Full support for English and Arabic languages
+- RTL/LTR layout switching
+- Seamless language switching without page reload
+- Localized content using JSON translation files
+
+### 🎨 Responsive Design
+
+- Mobile-first approach
+- Adaptive layouts for all screen sizes:
+  - Mobile: < 768px
+  - Tablet: 768px - 1024px
+  - Desktop: > 1024px
+- Flexible grid system using Tailwind CSS
+
+### ✨ Animations & Interactions
+
+- Smooth hover effects on navigation links
+- Expandable courier cards with slide animations
+- Transition effects on language switching
+- Interactive rate calculator with dynamic updates
+- Smooth scroll to sections
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 16.8 or later
+- npm or yarn package manager
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone [your-repo-url]
+cd nitros
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Run the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) with your browser
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+nitros/
+├── src/
+│   ├── app/              # Next.js app router pages
+│   ├── components/       # Reusable React components
+│   ├── contexts/         # React contexts (Language context)
+│   ├── locales/         # Translation files (en.json, ar.json)
+│   └── utils/           # Utility functions
+├── public/              # Static assets
+└── tailwind.config.js   # Tailwind CSS configuration
+```
 
-## Learn More
+## Key Components
 
-To learn more about Next.js, take a look at the following resources:
+### Language Switching
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Uses React Context for global language state
+- Automatic RTL/LTR switching
+- Persistent language preference
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Rate Calculator
 
-## Deploy on Vercel
+- Dynamic city selection
+- Real-time rate calculations
+- Expandable courier details
+- Responsive grid layout
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Navigation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Mobile-friendly hamburger menu
+- Smooth scroll to sections
+- Active link highlighting
+- Bilingual menu items
+-
+
+## Animation Details
+
+
+1. Button Interactions:
+   - Scale on click
+   - Color transitions
+   - Active state feedback
+
+2. Navigation Hover:
+
+   - Smooth color transition
+   - Subtle background effect
+
+3. Courier Cards:
+
+   - Expand/collapse animation
+   - Hover state transitions
+   - Icon rotation on expand
+
+4. Language Switch:
+
+   - Fade transition for content
+   - Layout adjustment animation
+
+
+## Testing
+
+### Unit Testing
+
+The project includes comprehensive unit tests using Jest and React Testing Library. Here's an example of our testing approach for the Button component:
+
+#### Button Component Tests
+
+```typescript
+// Button.test.tsx
+describe('Button Component', () => {
+  // Renders with different variants
+  test('renders primary variant correctly', () => {
+    // Tests primary button styling
+  });
+
+  test('renders secondary variant correctly', () => {
+    // Tests secondary button styling
+  });
+
+  // Interaction tests
+  test('handles click events', () => {
+    // Tests click functionality
+  });
+
+  // Accessibility tests
+  test('meets accessibility standards', () => {
+    // Tests ARIA attributes
+    // Tests keyboard navigation
+  });
+});
+```
+
+Key test cases covered:
+
+- Button variants (primary/secondary)
+- Click event handling
+- Disabled state behavior
+- Accessibility compliance
+- Responsive styling
+- Children content rendering
+
+To run tests:
+
+```bash
+npm run test
+# or
+yarn test
+```
+
+For test coverage:
+
+```bash
+npm run test:coverage
+# or
+yarn test:coverage
+```
