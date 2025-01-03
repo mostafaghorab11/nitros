@@ -1,4 +1,8 @@
+'use client';
+
+import { useLanguage } from '@/contexts/LanguageContext';
 import Image from 'next/image';
+import { translate } from '../utils/translate';
 
 const shippingPartners = [
   { name: 'SPL', logo: '/mini-logo1.svg' },
@@ -9,6 +13,7 @@ const shippingPartners = [
 ];
 
 export default function Footer() {
+  const { locale } = useLanguage();
   return (
     <footer className="w-full py-16 bg-gray-light">
       <div className="container mx-auto px-8">
@@ -16,11 +21,10 @@ export default function Footer() {
           {/* Footer Text */}
           <div className="flex flex-col items-center gap-4">
             <h2 className="text-[25px] sm:text-[39px] font-normal leading-9 sm:leading-[64.74px] text-gray-dark">
-              Our Trusted Shipping Partners
+              {translate('footer.title', locale)}
             </h2>
             <p className="text-gray-dark text-[13px] sm:text-xl leading-[18.98px] sm:leading-[32.8px] font-normal">
-              We work with industry-leading couriers to ensure reliable and
-              efficient shipping for your business
+              {translate('footer.subTitle', locale)}
             </p>
           </div>
 

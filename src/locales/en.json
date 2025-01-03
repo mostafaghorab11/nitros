@@ -1,0 +1,44 @@
+{
+  "nav": {
+    "home": "Home",
+    "shipping": "Shipping",
+    "pricing": "Pricing",
+    "whyNitros": "Why Nitros",
+    "signIn": "Sign Up / In"
+  },
+  "hero": {
+    "title": "platform gets you shipping carriers at the",
+    "titleSpan1":"Nitros",  
+    "titleSpan2":"best prices",
+    "subTitle": "Link your e-store with nitros with few steps to ship from you door to client's door",
+    "button": "Start Now"
+  },
+  "rates": {
+    "subTitle": "Calculate shipping rates easily and compare prices between shipping companies",
+    "shippingFrom": "Shipping From",
+    "shippingTo": "Shipping To",
+    "calculateNow": "Calculate Now",
+    "carrier": "Courier",
+    "rate": "Rate (SAR)",
+    "deliveryTime":"Delivery Time",
+    "cod": "COD",
+    "time":"1-3 Days",
+    "handoff": "Handoff Options",
+    "delivery options": "Delivery Options",
+    "pick&branch": "Pickup & branch drop-off"
+  },
+  "cities": {
+    "riyadh":"Riyadh",
+    "Jeddah": "Jeddah",
+    "Dammam": "Dammam",
+    "Mecca": "Mecca",
+    "Medina": "Medina"
+  },
+  "common": {
+    "rates": "Rates Calculator"
+  },
+  "footer": {
+    "title": "Our Trusted Shipping Partners",
+    "subTitle": "We work with industry-leading couriers to ensure reliable and efficient shipping for your business"
+  }
+}

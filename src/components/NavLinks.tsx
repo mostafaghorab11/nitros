@@ -2,13 +2,15 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { translate } from '@/utils/translate';
 
 const navLinks = [
-  { name: 'Home', href: '/' },
-  { name: 'Rates Calculator', href: '/rates' },
-  { name: 'Shipping', href: '/shipping' },
-  { name: 'Pricing', href: '/pricing' },
-  { name: 'Why Nitros', href: '/why-nitros' },
+  { name: 'nav.home', href: '/' },
+  { name: 'common.rates', href: '/rates' },
+  { name: 'nav.shipping', href: '/shipping' },
+  { name: 'nav.pricing', href: '/pricing' },
+  { name: 'nav.whyNitros', href: '/why-nitros' },
 ];
 
 interface NavLinksProps {
@@ -18,6 +20,7 @@ interface NavLinksProps {
 
 export default function NavLinks({ isMobile, onLinkClick }: NavLinksProps) {
   const pathname = usePathname();
+  const { locale } = useLanguage();
 
   return (
     <div className={isMobile ? "space-y-1" : "hidden md:flex items-center p-[6px]"}>
@@ -43,7 +46,7 @@ export default function NavLinks({ isMobile, onLinkClick }: NavLinksProps) {
             }
             replace={true}
           >
-            {link.name}
+            {translate(link.name, locale)}
           </Link>
         );
       })}

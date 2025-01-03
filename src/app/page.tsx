@@ -3,7 +3,7 @@ import RateCalculator from '@/components/RateCalculator';
 
 export default function Home() {
   return (
-    <main className='py-4 sm:py-5 px-5'>
+    <main className="py-4 sm:p-5">
       <Hero />
       <RateCalculator />
     </main>

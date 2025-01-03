@@ -1,6 +1,8 @@
 'use client';
 
 import Link from 'next/link';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { translate } from '@/utils/translate';
 
 interface AuthLinksProps {
   isMobile?: boolean;
@@ -8,6 +10,15 @@ interface AuthLinksProps {
 }
 
 export default function AuthLinks({ isMobile, onLinkClick }: AuthLinksProps) {
+  const { locale, setLocale } = useLanguage();
+
+  const handleLanguageSwitch = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const newLocale = locale === 'en' ? 'ar' : 'en';
+    setLocale(newLocale);
+    if (onLinkClick) onLinkClick();
+  };
+
   return (
     <div
       className={
@@ -25,19 +36,18 @@ export default function AuthLinks({ isMobile, onLinkClick }: AuthLinksProps) {
         }
         onClick={onLinkClick}
       >
-        Sign Up / In
+        {translate('nav.signIn', locale)}
       </Link>
-      <Link
-        href="/ar"
-        className={
+      <button
+        onClick={handleLanguageSwitch}
+        className={`${locale === 'en' ? 'font-ibm-arabic' : 'font-sans'} ${
           isMobile
-            ? 'block w-full py-3 px-4 rounded-lg text-[15px] font-medium text-gray-dark hover:text-primary hover:bg-gray-50 transition-colors font-ibm-arabic'
-            : 'px-4 py-2 text-gray-dark hover:text-primary transition-colors text-[16px] font-medium leading-[19.2px] font-ibm-arabic'
-        }
-        onClick={onLinkClick}
+            ? 'block w-full py-3 px-4 rounded-lg text-[15px] font-medium text-gray-dark hover:text-primary hover:bg-gray-50 transition-colors'
+            : 'px-4 py-2 text-gray-dark hover:text-primary transition-colors text-[16px] font-medium leading-[19.2px]'
+        }`}
       >
-        عربي
-      </Link>
+        {locale === 'en' ? 'عربي' : 'English'}
+      </button>
     </div>
   );
 }

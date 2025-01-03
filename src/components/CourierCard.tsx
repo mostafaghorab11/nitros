@@ -1,7 +1,11 @@
+'use client';
+
 import Image from 'next/image';
 import { FC } from 'react';
 import { BsCheckCircleFill } from 'react-icons/bs';
 import { IoChevronDownOutline, IoChevronUpOutline } from 'react-icons/io5';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { translate } from '@/utils/translate';
 
 interface CourierCardProps {
   name: string;
@@ -18,6 +22,8 @@ const CourierCard: FC<CourierCardProps> = ({
   isExpanded,
   onToggle,
 }) => {
+  const { locale } = useLanguage();
+
   return (
     <div>
       <button
@@ -68,16 +74,16 @@ const CourierCard: FC<CourierCardProps> = ({
           <div className="flex items-center justify-between">
             <div className="flex flex-col gap-1.5">
               <div className="text-[10px] leading-3 text-gray-400 uppercase font-semibold">
-                DELIVERY TIME
+                {translate('rates.deliveryTime', locale)}
               </div>
               <div className="font-normal text-[13px] leading-[18.98px]">
-                1-3 Days
+                {translate('rates.time', locale)}
               </div>
             </div>
 
             <div className="flex flex-col items-center justify-center gap-1">
               <div className="text-[10px] leading-3 text-gray-400 uppercase font-semibold">
-                COD
+                {translate('rates.cod', locale)}
               </div>
               <BsCheckCircleFill
                 height={16}
@@ -91,19 +97,19 @@ const CourierCard: FC<CourierCardProps> = ({
           <div className="flex items-center justify-between">
             <div className="flex flex-col gap-1.5">
               <div className="text-[10px] leading-3 text-gray-400 uppercase font-semibold">
-                HANDOFF OPTIONS
+                {translate('rates.handoff', locale)}
               </div>
               <div className="font-normal text-[13px] leading-[18.98px]">
-                Pickup & branch drop-off
+                {translate('rates.pick&branch', locale)}
               </div>
             </div>
 
             <div className="flex flex-col gap-1.5 text-right">
-              <div className="text-[10px] leading-3 text-gray-400 uppercase font-semibold">
-                DELIVERY OPTIONS
+              <div className="text-[10px] leading-3 text-gray-400 uppercase rtl:text-left font-semibold">
+                {translate('rates.delivery options', locale)}
               </div>
               <div className="font-normal text-[13px] leading-[18.98px]">
-                Pickup & branch drop-off
+                {translate('rates.pick&branch', locale)}
               </div>
             </div>
           </div>

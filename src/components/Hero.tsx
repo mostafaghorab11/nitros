@@ -1,29 +1,36 @@
+'use client';
+
+import { useLanguage } from '@/contexts/LanguageContext';
+import { translate } from '@/utils/translate';
 import Image from 'next/image';
 import Button from './Button';
 
 export default function Hero() {
+  const { locale } = useLanguage();
+
   return (
-    <div className="py-8 xl:py-24 px-5 xl:px-8 max-w-[1440px] mx-auto w-full">
-      <div className="flex flex-col lg:flex-row items-center gap-12 sm:gap-8">
+    <div className="py-8 xl:py-24 sm:px-5 xl:px-8 max-w-[1440px] mx-auto w-full">
+      <div className="grid sm:grid-cols-2 grid-rows-2 sm:grid-rows-1 gap-12 sm:gap-12">
         {/* Left Content */}
         <div className="flex flex-col gap-6 lg:gap-8 flex-1">
-          <div className="flex flex-col gap-4 text-left">
-            <h1 className="text-[31px] sm:text-[49px] sm:leading-[70.07px] font-semibold leading-[44.64px]">
-              <span className="text-primary">Nitros</span>{' '}
+          <div className="flex flex-col gap-4">
+            <h1 className="text-[31px] sm:text-[49px] sm:leading-[70.07px] font-semibold leading-[44.64px] rtl:text-right ltr:text-left">
+              <span className="text-primary">
+                {translate('hero.titleSpan1', locale)}
+              </span>{' '}
               <span className="text-gray-dark">
-                platform gets you shipping carriers at the{' '}
+                {translate('hero.title', locale)}{' '}
               </span>
               <span className="text-primary whitespace-nowrap">
-                best prices
+                {translate('hero.titleSpan2', locale)}
               </span>
             </h1>
-            <p className="text-base leading-[23.36px] lg:text-xl lg:leading-[32.8px] font-normal text-gray-dark max-w-[570px]">
-              Link your e-store with nitros with few steps to ship from you door
-              to client&apos;s door
+            <p className="text-base leading-[23.36px] lg:text-xl lg:leading-[32.8px] font-normal text-gray-dark max-w-[570px] rtl:text-right ltr:text-left">
+              {translate('hero.subTitle', locale)}
             </p>
           </div>
           <div>
-            <Button>Start Now</Button>
+            <Button>{translate('hero.button', locale)}</Button>
           </div>
         </div>
 
