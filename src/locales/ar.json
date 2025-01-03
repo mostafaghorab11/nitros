@@ -27,6 +27,10 @@
     "signIn": "تسجيل الدخول",
     "whyNitros": "لماذا نحن"
   },
+  "notFound": {
+    "message": "الصفحة غير موجودة",
+    "goHome": "العودة للرئيسية"
+  },
   "rates": {
     "calculateNow": "احسب الآن",
     "carrier": "شركة الشحن",

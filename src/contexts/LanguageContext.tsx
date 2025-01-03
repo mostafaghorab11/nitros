@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
+import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 
 interface LanguageContextType {
   locale: string;
@@ -18,7 +18,18 @@ interface LanguageProviderProps {
 export function LanguageProvider({ children }: LanguageProviderProps) {
   const router = useRouter();
   const pathname = usePathname();
-  const [locale, setLocale] = useState('en');
+  const searchParams = useSearchParams();
+  const [locale, setLocale] = useState(() => {
+    const urlLang = searchParams.get('lang');
+    return urlLang || 'en';
+  });
+
+  useEffect(() => {
+    const urlLang = searchParams.get('lang');
+    if (urlLang && urlLang !== locale) {
+      setLocale(urlLang);
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     document.documentElement.dir = locale === 'ar' ? 'rtl' : 'ltr';
@@ -27,7 +38,8 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
 
   const handleSetLocale = (newLocale: string) => {
     setLocale(newLocale);
-    router.push(pathname + '?lang=' + newLocale);
+    const newPath = pathname === '/' ? `/?lang=${newLocale}` : `${pathname}?lang=${newLocale}`;
+    router.push(newPath);
   };
 
   const contextValue: LanguageContextType = {

@@ -6,6 +6,10 @@
     "whyNitros": "Why Nitros",
     "signIn": "Sign Up / In"
   },
+  "notFound": {
+    "message": "Page Not Found",
+    "goHome": "Back to Home"
+  },
   "hero": {
     "title": "platform gets you shipping carriers at the",
     "titleSpan1":"Nitros",  

@@ -1,9 +1,9 @@
 'use client';
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { translate } from '@/utils/translate';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const navLinks = [
   { name: 'nav.home', href: '/' },
@@ -23,7 +23,9 @@ export default function NavLinks({ isMobile, onLinkClick }: NavLinksProps) {
   const { locale } = useLanguage();
 
   return (
-    <div className={isMobile ? "space-y-1" : "hidden md:flex items-center p-[6px]"}>
+    <div
+      className={isMobile ? 'space-y-1' : 'hidden md:flex items-center p-[6px]'}
+    >
       {navLinks.map((link) => {
         const isActive = pathname === link.href;
         return (
