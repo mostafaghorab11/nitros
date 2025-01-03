@@ -28,7 +28,7 @@ const CourierCard: FC<CourierCardProps> = ({
     <div>
       <button
         onClick={onToggle}
-        className="w-full grid grid-cols-2 items-center h-[74px] py-2 px-3 bg-white"
+        className="w-full grid grid-cols-2 items-center h-[74px] py-2 px-3 bg-white rounded-2xl"
       >
         {/* Image with name  */}
         <div className="flex items-center gap-2 py-2 px-2.5">
@@ -69,7 +69,7 @@ const CourierCard: FC<CourierCardProps> = ({
 
       {/* Expanded Content */}
       {isExpanded && (
-        <div className="flex flex-col gap-4 px-4 py-3 bg-gray-light">
+        <div className="flex flex-col gap-4 px-4 py-3 bg-gray-light rounded-b-2xl">
           {/* Delivery Time and COD */}
           <div className="flex items-center justify-between">
             <div className="flex flex-col gap-1.5">
