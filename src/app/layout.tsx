@@ -1,4 +1,5 @@
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 import type { Metadata } from 'next';
 import { ibmPlexSansArabic, redHatDisplay } from './fonts';
 import './globals.css';
@@ -21,6 +22,7 @@ export default function RootLayout({
       <body className="p-4 sm:p-5 font-sans bg-gray-light text-gray-dark">
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
