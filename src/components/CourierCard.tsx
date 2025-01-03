@@ -28,7 +28,7 @@ const CourierCard: FC<CourierCardProps> = ({
     <div>
       <button
         onClick={onToggle}
-        className="w-full grid grid-cols-2 items-center h-[74px] py-2 px-3 bg-white rounded-2xl"
+        className="w-full grid grid-cols-2 items-center h-[74px] py-2 px-3 bg-white rounded-2xl hover:bg-gray-50 transition-colors duration-200"
       >
         {/* Image with name  */}
         <div className="flex items-center gap-2 py-2 px-2.5">
