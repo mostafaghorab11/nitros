@@ -31,7 +31,7 @@ const Dropdown: FC<DropdownProps> = ({
       <div className="relative">
         <select
           id={id}
-          value={translate(value, locale)}
+          value={value}
           onChange={(e) => onChange(e.target.value)}
           className="w-full appearance-none bg-white rounded-md py-[14px] px-4 leading-[18.98px] font-normal text-[13px] focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent rtl:text-right ltr:text-left max-h-[200px] overflow-y-auto"
           style={{ maxWidth: '100vw' }}

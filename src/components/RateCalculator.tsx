@@ -9,16 +9,32 @@ import { translate } from '@/utils/translate';
 
 const cities = [
   'cities.riyadh',
-  'cities.Jeddah',
-  'cities.Dammam',
-  'cities.Mecca',
-  'cities.Medina'
+  'cities.jeddah',
+  'cities.dammam',
+  'cities.mecca',
+  'cities.medina'
 ];
 
 const RateCalculator = () => {
   const { locale } = useLanguage();
-  const [fromCity, setFromCity] = useState('cities.riyadh');
-  const [toCity, setToCity] = useState('cities.Jeddah');
+  const [fromCity, setFromCity] = useState<string>('cities.riyadh');
+  const [toCity, setToCity] = useState<string>('cities.jeddah');
+
+  const handleFromCityChange = (value: string) => {
+    if (value === toCity) {
+      // If selected city is same as destination, swap them
+      setToCity(fromCity);
+    }
+    setFromCity(value);
+  };
+
+  const handleToCityChange = (value: string) => {
+    if (value === fromCity) {
+      // If selected city is same as origin, swap them
+      setFromCity(toCity);
+    }
+    setToCity(value);
+  };
 
   return (
     <section id="rates" className="w-full bg-gradient-to-r from-gray-light to-white rounded-[20px]">
@@ -39,7 +55,7 @@ const RateCalculator = () => {
               id="shippingFrom"
               label={translate('rates.shippingFrom', locale)}
               value={fromCity}
-              onChange={setFromCity}
+              onChange={handleFromCityChange}
               options={cities}
             />
           </div>
@@ -49,7 +65,7 @@ const RateCalculator = () => {
               id="shippingTo"
               label={translate('rates.shippingTo', locale)}
               value={toCity}
-              onChange={setToCity}
+              onChange={handleToCityChange}
               options={cities}
             />
           </div>

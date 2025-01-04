@@ -12,8 +12,8 @@
   },
   "hero": {
     "title": "platform gets you shipping carriers at the",
-    "titleSpan1":"Nitros",  
-    "titleSpan2":"best prices",
+    "titleSpan1": "Nitros",
+    "titleSpan2": "best prices",
     "subTitle": "Link your e-store with nitros with few steps to ship from you door to client's door",
     "button": "Start Now"
   },
@@ -24,19 +24,19 @@
     "calculateNow": "Calculate Now",
     "carrier": "Courier",
     "rate": "Rate (SAR)",
-    "deliveryTime":"Delivery Time",
+    "deliveryTime": "Delivery Time",
     "cod": "COD",
-    "time":"1-3 Days",
+    "time": "1-3 Days",
     "handoff": "Handoff Options",
     "deliveryOptions": "Delivery Options",
     "pick&branch": "Pickup & branch drop-off"
   },
   "cities": {
-    "riyadh":"Riyadh",
-    "Jeddah": "Jeddah",
-    "Dammam": "Dammam",
-    "Mecca": "Mecca",
-    "Medina": "Medina"
+    "riyadh": "Riyadh",
+    "jeddah": "Jeddah",
+    "dammam": "Dammam",
+    "mecca": "Mecca",
+    "medina": "Medina"
   },
   "common": {
     "rates": "Rates Calculator"

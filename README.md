@@ -40,7 +40,7 @@ A modern, responsive shipping rate calculator built with Next.js, featuring bili
 1. Clone the repository:
 
 ```bash
-git clone [your-repo-url]
+git clone https://github.com/mostafaghorab11/nitros.git
 cd nitros
 ```
 
@@ -181,3 +181,29 @@ npm run test:coverage
 # or
 yarn test:coverage
 ```
+
+## Additional Features
+
+### Localization System
+- Comprehensive bilingual support (English/Arabic)
+- Context-based language management using React Context
+- URL parameter support (?lang=ar/en) for direct language access
+- Automatic text direction (RTL/LTR) switching based on language
+- JSON-based translation management for easy maintenance
+- Persistent language preferences across sessions
+
+### Responsive Mobile Drawer
+- Smooth slide-in/out animations with CSS transitions
+- Touch-friendly mobile interface with swipe gestures
+- Consistent styling with desktop version using Tailwind CSS
+- Automatic breakpoint handling for different screen sizes
+- Seamless mobile navigation experience
+- Backdrop overlay with blur effect for better focus
+
+### Button Animations
+- Hover state transitions with scale and color changes
+- Click feedback animations for better user interaction
+- Consistent interaction patterns across the application
+- Custom focus states for accessibility
+- Smooth color transitions using CSS transforms
+- Responsive touch feedback for mobile devices
