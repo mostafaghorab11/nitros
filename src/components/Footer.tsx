@@ -5,11 +5,11 @@ import Image from 'next/image';
 import { translate } from '../utils/translate';
 
 const shippingPartners = [
-  { name: 'SPL', logo: '/mini-logo1.svg' },
-  { name: 'Aramex', logo: '/mini-logo2.svg' },
-  { name: 'DHL', logo: '/mini-logo3.svg' },
-  { name: 'J&T', logo: '/mini-logo4.svg' },
-  { name: 'KnockBox', logo: '/mini-logo5.svg' },
+  { name: 'SPL', logo: '/images/mini-logo1.svg' },
+  { name: 'Aramex', logo: '/images/mini-logo2.svg' },
+  { name: 'DHL', logo: '/images/mini-logo3.svg' },
+  { name: 'J&T', logo: '/images/mini-logo4.svg' },
+  { name: 'KnockBox', logo: '/images/mini-logo5.svg' },
 ];
 
 export default function Footer() {

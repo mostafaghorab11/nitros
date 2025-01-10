@@ -47,7 +47,7 @@ export default function Drawer() {
                 onClick={toggleDrawer}
               >
                 <Image
-                  src="/logo.svg"
+                  src="/images/logo.svg"
                   alt="Nitros Logo"
                   width={63.64}
                   height={24}

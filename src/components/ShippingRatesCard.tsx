@@ -13,10 +13,10 @@ interface CourierRate {
 }
 
 const couriers: CourierRate[] = [
-  { name: 'SPL', logo: '/mini-logo1.svg', rate: 13.75 },
-  { name: 'Aramex', logo: 'mini-logo2.svg', rate: 13.75 },
-  { name: 'DHL', logo: '/mini-logo3.svg', rate: 13.75 },
-  { name: 'J&T Express', logo: '/mini-logo4.svg', rate: 13.75 },
+  { name: 'SPL', logo: '/images/mini-logo1.svg', rate: 13.75 },
+  { name: 'Aramex', logo: '/images/mini-logo2.svg', rate: 13.75 },
+  { name: 'DHL', logo: '/images/mini-logo3.svg', rate: 13.75 },
+  { name: 'J&T Express', logo: '/images/mini-logo4.svg', rate: 13.75 },
 ];
 
 const ShippingRatesCard = () => {

@@ -11,7 +11,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
-            src="/logo.svg"
+            src="/images/logo.svg"
             alt="Nitros Logo"
             width={89.1}
             height={28}
