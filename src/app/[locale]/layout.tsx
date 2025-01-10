@@ -36,7 +36,7 @@ export default async function RootLayout({
       <body>
         <LanguageProvider defaultLocale={locale}>
           <div
-            className={`p-5 bg-gray-light text-gray-dark min-h-screen ${
+            className={`p-4 sm:p-5 bg-gray-light text-gray-dark min-h-screen ${
               locale === 'en' ? 'font-sans' : 'font-ibm-arabic'
             }`}
           >
