@@ -1,7 +1,14 @@
 'use client';
 
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { useRouter, usePathname, useSearchParams } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useState,
+} from 'react';
 
 interface LanguageContextType {
   locale: string;
@@ -9,36 +16,47 @@ interface LanguageContextType {
   dir: 'ltr' | 'rtl';
 }
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+const LanguageContext = createContext<LanguageContextType | undefined>(
+  undefined
+);
 
 interface LanguageProviderProps {
   children: ReactNode;
+  defaultLocale: string;
 }
 
-export function LanguageProvider({ children }: LanguageProviderProps) {
+export function LanguageProvider({
+  children,
+  defaultLocale,
+}: LanguageProviderProps) {
   const router = useRouter();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const [locale, setLocale] = useState(() => {
-    const urlLang = searchParams.get('lang');
-    return urlLang || 'en';
-  });
+  const [locale, setLocale] = useState(defaultLocale);
+  const [isInitialized, setIsInitialized] = useState(false);
 
-  useEffect(() => {
-    const urlLang = searchParams.get('lang');
-    if (urlLang && urlLang !== locale) {
-      setLocale(urlLang);
-    }
-  }, [searchParams]);
+  // Set initial direction immediately before render
+  useLayoutEffect(() => {
+    document.documentElement.dir = defaultLocale === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.lang = defaultLocale;
+    setIsInitialized(true);
+  }, [defaultLocale]);
 
+  // Handle locale changes
   useEffect(() => {
+    if (!isInitialized) return;
     document.documentElement.dir = locale === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.lang = locale;
-  }, [locale]);
+  }, [locale, isInitialized]);
 
   const handleSetLocale = (newLocale: string) => {
+    if (newLocale === locale) return;
+    if (newLocale !== 'en' && newLocale !== 'ar') {
+      throw new Error('Invalid locale. Supported locales are "en" and "ar".');
+    }
     setLocale(newLocale);
-    const newPath = pathname === '/' ? `/?lang=${newLocale}` : `${pathname}?lang=${newLocale}`;
+    const segments = pathname.split('/');
+    segments[1] = newLocale;
+    const newPath = segments.join('/');
     router.push(newPath);
   };
 
@@ -47,6 +65,10 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
     setLocale: handleSetLocale,
     dir: locale === 'ar' ? 'rtl' : 'ltr',
   };
+
+  if (!isInitialized) {
+    return null; // Don't render children until initial direction is set
+  }
 
   return (
     <LanguageContext.Provider value={contextValue}>
@@ -61,17 +83,4 @@ export function useLanguage() {
     throw new Error('useLanguage must be used within a LanguageProvider');
   }
   return context;
-}
-
-interface LanguageAwareProps {
-  children: ReactNode;
-}
-
-export function LanguageAware({ children }: LanguageAwareProps) {
-  const { locale } = useLanguage();
-  return (
-    <div className={`min-h-screen ${locale === 'en' ? 'font-sans' : 'font-ibm-arabic'}`}>
-      {children}
-    </div>
-  );
 }
