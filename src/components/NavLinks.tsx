@@ -31,7 +31,7 @@ export default function NavLinks({ isMobile, onLinkClick }: NavLinksProps) {
         return (
           <Link
             key={link.name}
-            href={link.href}
+            href={`/${locale}/${link.href}`}
             onClick={onLinkClick}
             className={
               isMobile
