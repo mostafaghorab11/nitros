@@ -14,14 +14,14 @@ interface LocalePageProps {
   locale: string;
 }
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
   params: LocalePageProps;
 }) {
-  const { locale } = await Promise.resolve(params);
+  const { locale } = params;
 
   // Set initial HTML attributes
   const dir = locale === 'ar' ? 'rtl' : 'ltr';
