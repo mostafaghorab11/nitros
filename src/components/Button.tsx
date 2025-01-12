@@ -1,6 +1,6 @@
+import Link from 'next/link';
 import { ButtonHTMLAttributes } from 'react';
 import { twMerge } from 'tailwind-merge';
-import Link from 'next/link';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary';
@@ -15,18 +15,14 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const baseStyles =
-    'rounded-full font-medium transition-all duration-300 ease-out inline-flex items-center justify-center px-8 py-2 active:scale-95';
-    
+    'rounded-full transition-all duration-300 ease-out inline-flex items-center justify-center px-8 py-2 active:scale-95 text-white hover:opacity-90 active:opacity-100';
+
   const variants = {
-    primary: 'bg-primary text-white hover:opacity-90 active:opacity-100 text-[20px] font-semibold leading-[32.8px]',
-    secondary: 'bg-secondary text-white hover:opacity-90 active:opacity-100 text-[16px] font-semibold leading-[26.24px]',
+    primary: 'bg-primary text-[20px] font-semibold leading-[32.8px]',
+    secondary: 'bg-secondary text-[16px] font-semibold leading-[26.24px]',
   };
 
-  const classes = twMerge(
-    baseStyles,
-    variants[variant],
-    className
-  );
+  const classes = twMerge(baseStyles, variants[variant], className);
 
   if (href) {
     return (
