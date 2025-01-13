@@ -14,14 +14,17 @@ interface LocalePageProps {
   locale: string;
 }
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
   params: paramsPromise,
 }: {
   children: React.ReactNode;
   params: Promise<LocalePageProps>;
 }) {
+<<<<<<< HEAD
   const params = await paramsPromise;
+=======
+>>>>>>> origin/main
   const { locale } = params;
 
   // Set initial HTML attributes
